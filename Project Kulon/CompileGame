@@ -1,0 +1,4 @@
+#!/bin/bash
+gcc -c main.cpp
+g++ main.o -o HerZGoriChetire -lsfml-graphics -lsfml-window -lsfml-system
+./HerZGoriChetire
