@@ -7,25 +7,25 @@ using namespace sf;
 
 int main()
 {
-	RenderWindow window(VideoMode(1200, 1000), "Kulon"); /* создаем окно 200 на 200 с именем SFMLworks */
+	RenderWindow window(VideoMode(1200, 1000), "Kulon"); 
     SomeParticle particle[100];
     sf::Cursor cursor;
     if (cursor.loadFromSystem(sf::Cursor::Arrow))
     window.setMouseCursor(cursor);
 
-	Clock clock; /* засекаем время с последнего тика( чтобы привязка персонажа была ко времени, а не к мощности процессора) */
+	Clock clock; 
     int nmbpartcls=0;
 	float nmbcharg=-1;
 	while (window.isOpen())
 	{
-		double time = clock.getElapsedTime().asMicroseconds(); /* создаем переменную время, getElapsedTime() - дать прошедшее время( возьмем  его в микросекундах) */
-		clock.restart();   // перезагружает часы
-		time = time / 800; //здесь происходит регулировка скорости движения персонажа
+		double time = clock.getElapsedTime().asMicroseconds(); 
+		clock.restart();  
+		time = time / 800; 
 		Event event;
 		while (window.pollEvent(event))
 		{
 			if (event.type == Event::Closed)
-				window.close(); // обрабатываем событие закрытия окна
+				window.close(); 
 		}
 		sf::Vector2i position = sf::Mouse::getPosition();
 		if (Keyboard::isKeyPressed(Keyboard::P)) nmbcharg+=1;
@@ -72,7 +72,7 @@ int main()
 				}
 			}
         }
-		window.clear(Color::White); // очищаем экран
+		window.clear(Color::White); 
         for (int i=0; i<nmbpartcls; i++){
 			particle[i].update(time);
             window.draw(particle[i].circle);
